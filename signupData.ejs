@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    ul.navbar {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #454040;
+    }
+
+
+    ul.navbar li {
+        float: right;
+        padding: 0 76px;
+    }
+
+    ul.navbar li a {
+        display: block;
+        color: rgb(245, 238, 238);
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: bold;
+    }
+
+
+    ul.navbar li a:hover {
+        background-color: #555;
+        
+    }
+</style>
+<body>
+    <ul class="navbar">
+        <li><a href="/signupData">Login Data</a></li>
+        <li><a href="/loginData">Signup Data</a></li>
+        <li><a href="/data">Donate Data</a></li>
+        <li><a href="/donation">Donate</a></li>
+        <li><a href="/login">Signup</a></li>
+    </ul>
+    <h1>User List:</h1>
+    <table border="2" width="100%">
+
+        <tr>
+            <th>S.No:</th>
+            <th>Email</th>
+            <th>Password:</th>
+            <th>Action:</th>
+        </tr>
+        <% if(signupData.length >0){ %>
+
+            <% for(var i=0;i<signupData.length;i++){ %>
+
+                <tr>
+                    <td> <%-signupData[i]['UserID'] %> </td>
+                    <td> <%-signupData[i]['email'] %> </td>
+                    <td> <%-signupData[i]['password'] %> </td>
+                    
+                    <td> 
+                        <a href="/delete-user?UserID= <%-signupData[i]['UserID'] %> "> Delete</a> 
+                        <a href="/updateUser-user?UserID= <%-signupData[i]['UserID'] %> "> Update</a> 
+                        
+                    </td>
+                </tr>
+
+            <% } %>
+
+        
+        <% }else{ %>
+            <td><h1>Data Not Found</h1></td>
+            
+        <% } %>
+
+    </table>
+</body>
+</html>

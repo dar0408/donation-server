@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation List:</title>
+    <style>
+        
+        ul.navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #454040;
+        }
+
+
+        ul.navbar li {
+            float: right;
+            padding: 0 76px;
+        }
+
+        ul.navbar li a {
+            display: block;
+            color: rgb(245, 238, 238);
+            text-align: center;
+            padding: 14px 40px;
+            text-decoration: bold;
+        }
+
+
+        ul.navbar li a:hover {
+            background-color: #555;
+            
+        }
+    </style>
+</head>
+<body>
+    <ul class="navbar">
+        <li><a href="/contact">Contact Data</a></li>
+        <li><a href="/data">Donate Data</a></li>
+    <li> <a href="/cards">Card Data</a> </li>
+       
+       
+    </ul>
+    <h1>Donor List</h1>
+
+    <table border="px-5" width="100%">
+
+        
+        <tr>
+            <th>S.No:</th>
+            <th>First Name:</th>
+            <th>Last Name:</th>
+            <th>Phone No.:</th>
+            <th>Donation Amount:</th>
+            <th>Donation Items:</th>
+            <th>Donation Address:</th>
+            <th>City:</th>
+            <th>State:</th>
+            <th>Pin Code:</th>
+            <th>Country:</th>
+            <th>Actions:</th>
+        </tr>
+
+        <% if(data.length >0){ %>
+
+            <% for(var i=0;i<data.length;i++){ %>
+
+                <tr>
+                    <td><%- data[i]['dId']  %></td>
+                    <td><%- data[i]['firstName']  %></td>
+                    <td><%- data[i]['lastName']  %></td>
+                    <td><%- data[i]['phoneNumber']  %></td>
+                    <td><%- data[i]['donationAmount']  %></td>
+                    <td><%- data[i]['donationItem']  %></td>
+                    <td><%- data[i]['donationAddress']  %></td>
+                    <td><%- data[i]['city']  %></td>
+                    <td><%- data[i]['state']  %></td>
+                    <td><%- data[i]['postalCode']  %></td>
+                    <td><%- data[i]['country']  %></td>
+                    <td> 
+                        <a href="/delete-data?dId=<%- data[i]['dId'] %> "> Delete</a> 
+                        <a href="/updateData?dId=<%- data[i]['dId'] %> ">Update</a>
+                    </td>
+                </tr>
+
+            <% } %>
+
+        
+        <% }else{ %>
+            <td><h1>Data Not Found</h1></td>
+            
+        <% } %>
+
+    </table>
+</body>
+</html>

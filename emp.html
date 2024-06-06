@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="http://localhost:8080/emp_submit" method="post">
+        <table align="center" border="1">
+            
+            <tr>
+                <td>eName</td>
+                <td><input type="text" name="eName"/></td>
+            </tr>
+            <tr>
+                <td>eSalary</td>
+                <td><input type="number" name="eSalary" min="5000"/></td>
+            </tr>
+            <tr>
+                <td>dId</td>
+                <td>
+                <select name=dId>
+                    <option value="1">HR</option>
+                    <option value="2">technical </option>
+                    <option value="3">electrical</option>
+                    <option value="4">graphical</option>
+                </select>
+            </td>
+            </tr>
+            <tr>
+                <td><button type="submit">submit</button></td>
+            </tr>
+            
+        </table>
+    </form>
+</body>
+</html>

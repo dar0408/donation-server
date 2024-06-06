@@ -1,0 +1,150 @@
+
+
+ CREATE TABLE Report (
+     reportId INT PRIMARY KEY AUTO_INCREMENT,
+     donationFrequency VARCHAR(20)
+     -- Other columns in the 'Report' table
+ );
+
+
+
+ CREATE TABLE ngo (
+     reportId INT PRIMARY KEY ,
+     donationFrequency VARCHAR(20) NOT Null
+ );
+
+ CREATE TABLE donation (
+     dId INT PRIMARY KEY AUTO_INCREMENT,
+     firstName VARCHAR(255) NOT NULL,
+     lastName VARCHAR(255) NOT NULL,
+     phoneNumber VARCHAR(15) NOT NULL,
+     donationAmount DECIMAL(10, 2) NOT NULL,
+     donationFrequencyId INT NOT NULL,
+     donationItem VARCHAR(255) NOT NULL,
+     donationAddress VARCHAR(255) NOT NULL,
+     city VARCHAR(255) NOT NULL,
+     state VARCHAR(255) NOT NULL,
+     postalCode VARCHAR(20) NOT NULL,
+     country VARCHAR(255) NOT NULL,
+     FOREIGN KEY (donationFrequencyId) REFERENCES Report(reportId)
+ );
+
+
+ insert into report(rId,donationFrequency) values (1,'Weekly'),(2,'Monthly'),(3,'Yearly');
+
+
+
+-- Create the 'report' table
+CREATE TABLE ngo (
+    rId INT PRIMARY KEY,
+    ngoName VARCHAR(100) NOT NULL
+    
+);
+
+-- Create the 'donation' table
+CREATE TABLE donation (
+    dId INT PRIMARY KEY AUTO_INCREMENT,
+    firstName VARCHAR(255) NOT NULL,
+    lastName VARCHAR(255) NOT NULL,
+    phoneNumber VARCHAR(10) NOT NULL,
+    donationAmount INT NOT NULL,
+    donationItem TEXT,
+    donationAddress TEXT NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    state VARCHAR(255) NOT NULL,
+    postalCode INT NOT NULL,
+    country VARCHAR(255) NOT NULL,
+    rId INT,
+    FOREIGN KEY (rId) REFERENCES ngo(rId)
+);
+
+
+
+
+CREATE TABLE userData (
+    UserID INT PRIMARY KEY AUTO_INCREMENT,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
+CREATE TABLE user (
+    UserID INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
+CREATE TABLE contact (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  message TEXT NOT NULL
+);
+
+-- Create a table for testimonials
+CREATE TABLE IF NOT EXISTS testimonials (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    name TEXT,
+    role TEXT,
+    message TEXT,
+);
+
+-- Insert data into the testimonials table
+//     "Every donation is a powerful statement of belief in our cause. Rest assured, we are dedicated to using your contribution effectively to drive positive change.",
+
+
+//     "Your generosity is the cornerstone of our efforts. With each donation, we are empowered to tackle challenges head-on and make a real difference in the lives of others.",
+
+INSERT INTO testimonials (name, role, message)
+    VALUES
+    ('Altruism Ally', 'Event Coordinator', 'We know you have a lot of choices when it comes to donating, and we are so grateful that you chose to donate to our cause. We promise to be responsible stewards of both your donation and your trust.' ),
+    ('Benevolence', 'Donation Collection Agent','In a world filled with countless needs, your decision to contribute to our cause speaks volumes. Together, we can make a meaningful impact on lives and communities.' ),
+    ('Generosity', 'Fundraising Specialist', 'Your generosity is the cornerstone of our efforts. With each donation, we are empowered to tackle challenges head-on and make a real difference in the lives of others.',),
+    ('John Doe', 'Social Media Ambassador', 'Every donation is a powerful statement of belief in our cause. Rest assured, we are dedicated to using your contribution effectively to drive positive change.',);
+
+
+CREATE TABLE  testimonials (
+     id INTEGER PRIMARY KEY AUTO_INCREMENT,
+     name TEXT,
+     role TEXT,
+     message TEXT
+);
+
+
+INSERT INTO testimonials (name, role, message)
+         VALUES
+         ('Altruism Ally', 'Event Coordinator', 'We know you have a lot of choices when it comes to donating, and we are so grateful that you chose to donate to our cause. We promise to be responsible stewards of both your donation and your trust.' ),
+         ('Benevolence', 'Donation Collection Agent','In a world filled with countless needs, your decision to contribute to our cause speaks volumes. Together, we can make a meaningful impact on lives and communities.' ),
+         ('Generosity', 'Fundraising Specialist', 'Your generosity is the cornerstone of our efforts. With each donation, we are empowered to tackle challenges head-on and make a real difference in the lives of others.');
+
+
+
+
+
+         INSERT INTO testimonials (name, role, message)
+VALUES
+  ('Compassion Crew', 'Community Organizer', 'Your decision to join the Compassion Crew is a beacon of hope and a testament to the strength of community. As we embark on this journey together, your passion for making a difference will undoubtedly leave a lasting impact on the lives we touch. Thank you for being a driving force for positive change.'),
+  ('Heartfelt Heroes', 'Philanthropy Coordinator', 'In a world often clouded by challenges, your commitment to philanthropy shines brightly. Your generosity fuels our mission, allowing us to extend a helping hand to those facing adversity. With your support, we are not just making a difference; we are transforming lives and fostering a culture of compassion and empathy. Thank you for being a Heartfelt Hero.'),
+  ('Empathy Envoys', 'Advocacy Specialist', 'As an Empathy Envoy, you are on the frontline of change, championing the cause of compassion and understanding. Your dedication to promoting empathy as a force for good is reshaping the narrative of our society. Each step you take brings us closer to a world where kindness prevails. Thank you for being a trailblazer in the journey towards a more empathetic and interconnected world.');
+
+
+
+INSERT INTO contact (name, email, message)
+VALUES
+('John Doe', 'john@gmail.com', 'This is a test message about the contact form.'),
+('Alice Smith', 'alice@gmail.com', 'I have a question regarding your services.'),
+('Bob Johnson', 'bob@gmail.com', 'Please provide more information about your products.'),
+('Eva Brown', 'eva@gmail.com', 'I would like to inquire about pricing and packages.'),
+('Michael Lee', 'michael@gmail.com', 'Im interested in scheduling a meeting to discuss collaboration.'),
+('Sara Wilson', 'sara@gmail.com', 'Could you please send me a brochure of your offerings?'),
+('Daniel Miller', 'daniel@gmail.com', 'I need technical support for one of your products.'),
+('Emma White', 'emma@gmail.com', 'I appreciate your prompt response to my previous inquiry.'),
+('Alex Turner', 'alex@gmail.com', 'I want to give feedback on your recent event.'),
+('Sophia Davis', 'sophia@gmail.com', 'Im reaching out for partnership opportunities.');

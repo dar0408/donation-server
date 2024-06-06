@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation List</title>
+</head>
+<body>
+    <h1>Donor List</h1>
+
+    <h1>Search:</h1>
+    <form action="http://localhost:8080/search_done">
+        <input type="search" name="firstName" placeholder="Search firstName" >
+        <input type="search" name="lastName" placeholder="Search lastName " >
+        <input type="search" name="phoneNumber" placeholder="Search phoneNumber" >
+        <input type="search" name="donationAmount" placeholder="Search donationAmount " >
+        <input type="search" name="rId" placeholder="Search rId" >
+        <input type="search" name="donationItem" placeholder="Search donationItem " >
+        <input type="search" name="donationAddress" placeholder="Search donationAddress" >
+        <input type="search" name="city" placeholder="Search city " >
+        <input type="search" name="state" placeholder="Search state " >
+        <input type="search" name="postalCode " placeholder="Search postalCode " > 
+        <input type="search" name="country" placeholder="Search country " > 
+
+        <input type="submit" value="search ">
+    </form>
+    <table border="2" width="100%">
+
+        
+        <tr>
+            <th>S.No</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone No.</th>
+            <th>Donation Amount</th>
+            <th>Report</th>
+            <th>Donation Items</th>
+            <th>Donation Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Pin Code</th>
+            <th>Country</th>
+            
+        </tr>
+
+        <% if(data.length >0){ %>
+
+            <% for(var i=0;i<data.length;i++){ %>
+
+                <tr>
+                    <td><%- data[i]['dId']  %></td>
+                    <td><%- data[i]['firstName']  %></td>
+                    <td><%- data[i]['lastName']  %></td>
+                    <td><%- data[i]['phoneNumber']  %></td>
+                    <td><%- data[i]['donationAmount']  %></td>
+                    <td><%- data[i]['rId']  %></td>
+                    <td><%- data[i]['donationItem']  %></td>
+                    <td><%- data[i]['donationAddress']  %></td>
+                    <td><%- data[i]['city']  %></td>
+                    <td><%- data[i]['state']  %></td>
+                    <td><%- data[i]['postalCode']  %></td>
+                    <td><%- data[i]['country']  %></td>
+                </tr>
+
+            <% } %>
+
+        
+        <% }else{ %>
+            <td><h1>Data Not Found</h1></td>
+            
+        <% } %>
+
+    </table>
+</body>
+</html>

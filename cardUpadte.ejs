@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Include your custom CSS if any -->
+    <!-- Add your custom CSS here -->
+
+</head>
+<body>
+<div class="contact-form">
+  <form id="contact-form" method="post" action="http://localhost:8080/update-cards">
+    <input type="hidden" name="id" value="<%= data[0].id %>">
+    <div class="form-group">
+        <label for="message">Your Name:</label>
+        <textarea class="form-control" id="name" name="name" placeholder="Enter your name" required><%= data[0].name %></textarea>
+      </div><div class="form-group">
+        <label for="message">Your Role:</label>
+        <textarea class="form-control" id="role" name="role" placeholder="Enter your role" required><%= data[0].role %></textarea>
+      </div>
+    <div class="form-group">
+      <label for="message">Your Message:</label>
+      <textarea class="form-control" id="message" name="message" placeholder="Enter your message" required><%= data[0].message %></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary"><i class="fab fa-telegram-plane"></i> Send Message</button>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-U1sED5Qs9tFBz1JjHGO2tJ3i5lw2/JjA4Nj4pN1COT6QpaLf2pGcNAkycRSFMyOl" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEgDUEtOWJ1a/DWVePeC2bfaFFfKb" crossorigin="anonymous"></script>
+
+</body>
+</html>
